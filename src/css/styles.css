@@ -1,25 +1,216 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-@import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css');
+* {
+  box-sizing: border-box;
+}
 
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
+body {
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
   font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  width: 1440px;
+}
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+a {
+  display: block;
+  font-size: 20px;
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+p {
+  margin: 0;
+}
+
+.gallery {
+  margin: 0 0 40px 0;
+  padding-left: 0;
+  list-style-type: none;
+  padding: 24px 120px;
+  justify-content: center;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  flex-basis: calc((100% - 2 * 24) / 3);
+}
+
+.gallery > li > a {
+  position: relative;
+  display: block;
+  width: 360px;
+  height: 200px;
+  cursor: pointer;
+}
+
+a:hover > img {
+  width: 376px;
+  height: 208px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.basicLightbox {
+  padding: 28px 164px;
+}
+
+.basicLightbox__placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+.modal {
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.input {
+  padding: 8px 16px;
+  width: 272px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid #808080;
+  font-size: 16px;
+}
+
+.input:hover {
+  border: 1px solid #000;
+}
+
+.input:focus {
+  outline: none;
+  border: 1px solid #4e75ff;
+}
+
+.input::placeholder {
+  color: #808080;
+}
+
+.next-btn,
+.search-btn {
+  display: inline-flex;
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: #4e75ff;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.next-btn {
+  display: block;
+  margin: 0 auto;
+}
+
+.next-btn:hover,
+.search-btn:hover {
+  background-color: #808080;
+}
+
+.container-additional-info {
+  padding: 0 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border: 0.02px solid #808080;
+}
+
+.container-descr-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.description {
+  font-weight: 600;
+}
+
+.description-value {
+  text-align: center;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader {
+  text-align: center;
+  position: relative;
+  width: 120px;
+  height: 90px;
+  margin: 0 auto;
+}
+.loader:before {
+  content: '';
+  position: absolute;
+  bottom: 30px;
+  left: 50px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: #ff3d00;
+  animation: loading-bounce 0.5s ease-in-out infinite alternate;
+}
+.loader:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 7px;
+  width: 45px;
+  border-radius: 4px;
+  box-shadow: 0 5px 0 #4e75ff, -35px 50px 0 #4e75ff, -70px 95px 0 #4e75ff;
+  animation: loading-step 1s ease-in-out infinite;
+}
+
+@keyframes loading-bounce {
+  0% {
+    transform: scale(1, 0.7);
+  }
+  40% {
+    transform: scale(0.8, 1.2);
+  }
+  60% {
+    transform: scale(1, 1);
+  }
+  100% {
+    bottom: 140px;
+  }
+}
+@keyframes loading-step {
+  0% {
+    box-shadow: 0 10px 0 rgba(0, 0, 0, 0), 0 10px 0 #4e75ff,
+      -35px 50px 0 #4e75ff, -70px 90px 0 #4e75ff;
+  }
+  100% {
+    box-shadow: 0 10px 0 #4e75ff, -35px 50px 0 #4e75ff, -70px 90px 0 #4e75ff,
+      -70px 90px 0 rgba(0, 0, 0, 0);
+  }
 }
